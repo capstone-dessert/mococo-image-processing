@@ -33,13 +33,12 @@ def get_color(image: Image.Image) -> str:
 
     color_thief = ColorThief(file)
     dominant_color = color_thief.get_color(quality=1)
-    print(dominant_color)
     return closest_color(dominant_color)
 
 
 def closest_color(requested_color):
     min_colors = {}
-    for key, name in webcolors.CSS3_HEX_TO_NAMES.items():
+    for key, name in webcolors.HTML4_HEX_TO_NAMES.items():
         r_c, g_c, b_c = webcolors.hex_to_rgb(key)
         rd = (r_c - requested_color[0]) ** 2
         gd = (g_c - requested_color[1]) ** 2
